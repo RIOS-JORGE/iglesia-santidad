@@ -8,8 +8,8 @@ site_url: https://iglesia-santidad-eta.vercel.app
 display_url: https://iglesia-santidad-eta.vercel.app
 logo_url: /favicon.svg
 
-media_folder: public/images
-public_folder: /images
+media_folder: public
+public_folder: /
 
 collections:
   - name: posts
