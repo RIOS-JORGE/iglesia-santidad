@@ -23,6 +23,5 @@ collections:
       - { label: Slug, name: slug, widget: string, hint: 'Identificador único para la URL (ej: oracion-diaria)' }
       - { label: Fecha, name: date, widget: datetime, format: 'YYYY-MM-DD' }
       - { label: Categoría, name: category, widget: string }
-      - { label: Imagen destacada, name: image, widget: image, required: false }
       - { label: Extracto, name: excerpt, widget: text, required: false }
       - { label: Contenido, name: body, widget: markdown }
