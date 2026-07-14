@@ -3,6 +3,10 @@ backend:
   repo: RIOS-JORGE/iglesia-santidad
   branch: main
 
+site_url: https://iglesia-santidad-orcin.vercel.app
+display_url: https://iglesia-santidad-orcin.vercel.app
+logo_url: /favicon.svg
+
 media_folder: public/images
 public_folder: /images
 
