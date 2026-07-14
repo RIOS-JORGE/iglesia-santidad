@@ -2,8 +2,7 @@ backend:
   name: github
   repo: RIOS-JORGE/iglesia-santidad
   branch: main
-  auth_type: implicit
-  client_id: Ov23liVrO3bGqDruWFAN
+  base_url: https://sveltia-cms-auth.jorgedrios86.workers.dev
 
 site_url: https://iglesia-santidad-orcin.vercel.app
 display_url: https://iglesia-santidad-orcin.vercel.app
