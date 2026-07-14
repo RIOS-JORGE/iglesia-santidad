@@ -3,7 +3,7 @@ backend:
   repo: RIOS-JORGE/iglesia-santidad
   branch: main
   auth_type: implicit
-  client_id: CLIENT_ID_DE_TU_OAUTH_APP
+  client_id: Ov23liVrO3bGqDruWFAN
 
 site_url: https://iglesia-santidad-orcin.vercel.app
 display_url: https://iglesia-santidad-orcin.vercel.app
