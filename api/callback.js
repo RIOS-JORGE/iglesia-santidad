@@ -65,7 +65,7 @@ export default async function handler(req, res) {
     const error = ${errorMsg ? `'${errorMsg}'` : 'null'};
 
     if (token && window.opener) {
-      window.opener.postMessage({ token: token, provider: 'github' }, '*');
+      window.opener.postMessage({ token: token, provider: 'github' }, 'https://iglesia-santidad-orcin.vercel.app');
     }
 
     setTimeout(function() {
