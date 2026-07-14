@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { code, state } = req.query;
-  const clientId = process.env.GITHUB_CLIENT_ID;
-  const clientSecret = process.env.GITHUB_CLIENT_SECRET;
+  const clientId = process.env.github_client_id;
+  const clientSecret = process.env.github_client_secret;
 
   if (!code) {
     res.status(400).json({ error: 'Missing code' });

@@ -1,9 +1,9 @@
 export default function handler(req, res) {
-  const siteUrl = process.env.SITE_URL || 'https://iglesia-santidad-orcin.vercel.app';
-  const clientId = process.env.GITHUB_CLIENT_ID;
+  const siteUrl = 'https://iglesia-santidad-orcin.vercel.app';
+  const clientId = process.env.github_client_id;
 
   if (!clientId) {
-    res.status(500).json({ error: 'GITHUB_CLIENT_ID not configured' });
+    res.status(500).json({ error: 'github_client_id not configured' });
     return;
   }
 
