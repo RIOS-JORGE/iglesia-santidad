@@ -6,46 +6,6 @@
   <title>Admin - Santidad a Jehovah</title>
 </head>
 <body>
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
-  <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'RIOS-JORGE/iglesia-santidad',
-          branch: 'main',
-          base_url: 'https://iglesia-santidad-orcin.vercel.app',
-          auth_endpoint: 'api/auth',
-        },
-        site_url: 'https://iglesia-santidad-orcin.vercel.app',
-        display_url: 'https://iglesia-santidad-orcin.vercel.app',
-        logo_url: '/favicon.svg',
-        media_folder: 'public/images',
-        public_folder: '/images',
-        collections: [
-          {
-            name: 'posts',
-            label: 'Posts',
-            label_singular: 'Post',
-            folder: 'src/content/posts',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              { label: 'Título', name: 'title', widget: 'string' },
-              { label: 'Slug', name: 'slug', widget: 'string', hint: 'Identificador único para la URL (ej: oracion-diaria)' },
-              { label: 'Fecha', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD' },
-              { label: 'Categoría', name: 'category', widget: 'string' },
-              { label: 'Imagen destacada', name: 'image', widget: 'image', required: false },
-              { label: 'Extracto', name: 'excerpt', widget: 'text', required: false },
-              { label: 'Contenido', name: 'body', widget: 'markdown' },
-            ],
-          },
-        ],
-      },
-    });
-  </script>
 </body>
 </html>
