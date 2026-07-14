@@ -4,8 +4,8 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.jorgedrios86.workers.dev
 
-site_url: https://iglesia-santidad-orcin.vercel.app
-display_url: https://iglesia-santidad-orcin.vercel.app
+site_url: https://iglesia-santidad-eta.vercel.app
+display_url: https://iglesia-santidad-eta.vercel.app
 logo_url: /favicon.svg
 
 media_folder: public/images
