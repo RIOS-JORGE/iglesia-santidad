@@ -7,7 +7,7 @@ interface Props {
 
 export default function ActivityCard({ day, activity, time, desc }: Props) {
   return (
-    <article className="w-full max-w-[230px] h-[190px] bg-white rounded-2xl shadow-md p-5 flex flex-col justify-between">
+    <article className="w-full max-w-57.5 h-47.5 bg-white rounded-2xl shadow-md p-5 flex flex-col justify-between">
       <div>
         <p className="text-[12px] font-semibold text-text-light uppercase tracking-wide">
           {day}

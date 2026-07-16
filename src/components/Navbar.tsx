@@ -21,7 +21,7 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="h-[72px] bg-white flex items-center px-4 md:px-8 sticky top-0 z-50 shadow-sm">
+    <nav className="h-18 bg-white flex items-center px-4 md:px-8 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-[20px] font-bold text-primary no-underline">
@@ -74,15 +74,15 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Menú"
         >
-          <span className="block w-6 h-[2px] bg-primary rounded" />
-          <span className="block w-6 h-[2px] bg-primary rounded" />
-          <span className="block w-6 h-[2px] bg-primary rounded" />
+          <span className="block w-6 h-0.5 bg-primary rounded" />
+          <span className="block w-6 h-0.5 bg-primary rounded" />
+          <span className="block w-6 h-0.5 bg-primary rounded" />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="absolute top-[72px] left-0 w-full bg-white flex flex-col items-center gap-4 py-6 shadow-lg md:hidden">
+        <div className="absolute top-18 left-0 w-full bg-white flex flex-col items-center gap-4 py-6 shadow-lg md:hidden">
           {routeLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (

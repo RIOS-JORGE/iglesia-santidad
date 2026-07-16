@@ -12,7 +12,7 @@ const galleryItems = [
 export default function GalleryPage() {
   return (
     <>
-      <section className="bg-primary h-[200px] flex items-center justify-center">
+      <section className="bg-primary h-50 flex items-center justify-center">
         <h1 className="text-white text-[40px] font-bold">Galería</h1>
       </section>
       <section className="px-4 py-16">
