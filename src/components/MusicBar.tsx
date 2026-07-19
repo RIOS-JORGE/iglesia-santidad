@@ -1,7 +1,39 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function MusicBar() {
   const [visible, setVisible] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [activated, setActivated] = useState(false);
+
+  // Activar autoplay cuando el usuario interactúa con la página
+  useEffect(() => {
+    function handleInteraction() {
+      if (activated) return;
+      setActivated(true);
+
+      // Forzar recarga del iframe con autoplay después de interacción
+      if (iframeRef.current) {
+        const src = iframeRef.current.src;
+        iframeRef.current.src = '';
+        // pequeño delay para que el navegador procese
+        requestAnimationFrame(() => {
+          if (iframeRef.current) {
+            iframeRef.current.src = src;
+          }
+        });
+      }
+    }
+
+    document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('keydown', handleInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('keydown', handleInteraction);
+    };
+  }, [activated]);
 
   if (!visible) return null;
 
@@ -19,12 +51,12 @@ export default function MusicBar() {
 
         <div className="flex-1 max-w-md">
           <iframe
+            ref={iframeRef}
             src="https://open.spotify.com/embed/album/494Non4CwsHuPsQu9fHs8K?utm_source=generator&theme=0"
             width="100%"
             height="80"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
             className="rounded-lg"
           />
         </div>
