@@ -23,7 +23,7 @@ export default function MusicBar() {
             width="100%"
             height="80"
             frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture"
             loading="lazy"
             className="rounded-lg"
           />
