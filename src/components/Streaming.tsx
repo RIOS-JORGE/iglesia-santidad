@@ -80,7 +80,7 @@ export default function Streaming() {
       <div className="mx-auto max-w-7xl text-center">
         <h2 className="text-[32px] font-bold text-primary">Transmisión en Vivo</h2>
         <p className="text-text-body mt-2 text-base">
-          Domingos 10:00 AM | Miércoles 7:00 PM
+          Martes 20:30hs
         </p>
 
         <div className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl shadow-lg aspect-video">
