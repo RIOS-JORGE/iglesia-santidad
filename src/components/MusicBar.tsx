@@ -24,7 +24,7 @@ export default function MusicBar() {
             height="80"
             frameBorder="0"
             allow="fullscreen; picture-in-picture"
-            loading="lazy"
+
             className="rounded-lg"
           />
         </div>
