@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Branding */}
         <div>
-          <p className="text-[20px] font-bold mb-3">✝ Santidad a Jehovah</p>
+          <p className="text-[20px] font-bold mb-3">Santidad a Jehovah</p>
           <p className="text-sm text-white/70 leading-relaxed">
             Unidos en la fe, creciendo en el amor de Cristo.
           </p>

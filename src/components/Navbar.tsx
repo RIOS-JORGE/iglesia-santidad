@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-[20px] font-bold text-primary no-underline">
-          ✝ Santidad a Jehovah
+          Santidad a Jehovah
         </Link>
 
         {/* Desktop nav */}
