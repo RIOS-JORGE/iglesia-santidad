@@ -7,14 +7,10 @@ import YoutubeIcon from '../icons/YoutubeIcon.tsx';
 const routeLinks = [
   { label: 'Inicio', path: '/' },
   { label: 'Biblia', path: '/biblia' },
-  { label: 'Galería', path: '/galeria' },
   { label: 'Blog', path: '/blog' },
 ] as const;
 
-const anchorLinks = [
-  { label: 'En Vivo', hash: '#streaming' },
-  { label: 'Actividades', hash: '#actividades' },
-] as const;
+const anchorLinks = [] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

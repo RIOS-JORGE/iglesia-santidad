@@ -20,10 +20,7 @@ export default function Footer() {
           <p className="font-semibold text-base mb-3">Navegación</p>
           <ul className="space-y-2 text-sm text-white/70">
             <li><Link to="/" className="hover:text-white transition-colors no-underline text-white/70">Inicio</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors no-underline text-white/70">En Vivo</Link></li>
-            <li><Link to="/" className="hover:text-white transition-colors no-underline text-white/70">Actividades</Link></li>
             <li><Link to="/biblia" className="hover:text-white transition-colors no-underline text-white/70">Biblia</Link></li>
-            <li><Link to="/galeria" className="hover:text-white transition-colors no-underline text-white/70">Galería</Link></li>
             <li><Link to="/blog" className="hover:text-white transition-colors no-underline text-white/70">Blog</Link></li>
           </ul>
         </div>

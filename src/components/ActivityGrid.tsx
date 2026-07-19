@@ -4,7 +4,7 @@ const schedule = [
   { day: 'Jueves', activity: 'Oración', time: '19:00' },
   { day: 'Viernes', activity: 'Oración', time: '19:00' },
   { day: 'Sábado', activity: 'Reunión', time: '19:00' },
-  { day: 'Domingo', activity: 'Reunión', time: '19:00' },
+  { day: 'Domingo', activity: 'Reunión', time: '18:00' },
 ];
 
 export default function ActivityGrid() {
