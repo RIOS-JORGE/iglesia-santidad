@@ -10,7 +10,6 @@ const routeLinks = [
   { label: 'Blog', path: '/blog' },
 ] as const;
 
-const anchorLinks = [] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -40,15 +39,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-          {anchorLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.hash}
-              className="text-[15px] font-medium text-text-nav no-underline transition-colors hover:text-accent"
-            >
-              {link.label}
-            </a>
-          ))}
         </div>
 
         {/* Social icons */}
@@ -94,16 +84,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-          {anchorLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.hash}
-              onClick={() => setOpen(false)}
-              className="text-[15px] font-medium text-text-nav no-underline transition-colors hover:text-accent"
-            >
-              {link.label}
-            </a>
-          ))}
           <div className="flex items-center gap-4 mt-2">
             <a href="https://www.facebook.com/santidadajehovah" target="_blank" rel="noopener noreferrer">
               <FacebookIcon size={22} />
