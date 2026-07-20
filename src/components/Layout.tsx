@@ -4,7 +4,7 @@ import Footer from './Footer.tsx';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg">
+    <div className="min-h-screen flex flex-col bg-bg dark:bg-dark">
       <Navbar />
       <main className="flex-1">
         <Outlet />

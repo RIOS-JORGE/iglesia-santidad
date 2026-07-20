@@ -76,14 +76,14 @@ export default function Streaming() {
   }, []);
 
   return (
-    <section id="streaming" className="bg-white px-4 py-16">
+    <section id="streaming" className="bg-white dark:bg-slate-900 px-4 py-16">
       <div className="mx-auto max-w-7xl text-center">
-        <h2 className="text-[32px] font-bold text-primary">Transmisión en Vivo</h2>
-        <p className="text-text-body mt-2 text-base">
+        <h2 className="text-[32px] font-bold text-primary dark:text-white">Transmisión en Vivo</h2>
+        <p className="text-text-body dark:text-slate-300 mt-2 text-base">
           Martes 20:30hs
         </p>
 
-        <div className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl shadow-lg aspect-video">
+        <div className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl shadow-lg dark:shadow-black/20 aspect-video">
           {status === 'live' ? (
             <div ref={containerRef} className="h-full w-full" />
           ) : (
@@ -97,7 +97,7 @@ export default function Streaming() {
           )}
         </div>
 
-        <p className="text-text-light mt-4 text-sm">
+        <p className="text-text-light dark:text-slate-400 mt-4 text-sm">
           Síguenos también en YouTube para no perderte ninguna transmisión.
         </p>
       </div>

@@ -3,7 +3,7 @@ interface Props {
   color?: string;
 }
 
-export default function FacebookIcon({ size = 24, color = '#1E3A5F' }: Props) {
+export default function FacebookIcon({ size = 24,   color = 'currentColor' }: Props) {
   return (
     <svg
       width={size}

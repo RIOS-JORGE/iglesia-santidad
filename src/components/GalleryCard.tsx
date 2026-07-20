@@ -6,7 +6,7 @@ interface Props {
 export default function GalleryCard({ bgColor, caption }: Props) {
   return (
     <article
-      className="rounded-2xl shadow-md flex flex-col items-center justify-center gap-4 h-64 text-white"
+      className="rounded-2xl shadow-md dark:shadow-black/20 flex flex-col items-center justify-center gap-4 h-64 text-white"
       style={{ backgroundColor: bgColor }}
     >
       <span className="text-5xl">📸</span>
