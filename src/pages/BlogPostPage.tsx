@@ -79,7 +79,7 @@ export default function BlogPostPage() {
             <img
               src={post.image}
               alt={post.title}
-              className="w-full rounded-xl mb-10"
+              className="w-full rounded-xl mb-10 text-text-body dark:text-slate-300"
             />
           )}
 
@@ -93,6 +93,7 @@ export default function BlogPostPage() {
               [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-text-body dark:[&_blockquote]:text-slate-300
               [&_blockquote]:my-6
               [&_img]:rounded-xl [&_img]:w-full [&_img]:my-6
+              [&_img]:text-text-body dark:[&_img]:text-slate-300
               [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:text-text-body dark:[&_ul]:text-slate-300 [&_ul]:space-y-2
               [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:text-text-body dark:[&_ol]:text-slate-300 [&_ol]:space-y-2
               [&_li>p]:mb-0

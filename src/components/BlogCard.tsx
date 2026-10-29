@@ -17,7 +17,7 @@ export default function BlogCard({ title, slug, date, category, excerpt, image }
           <img
             src={image}
             alt={title}
-            className="w-full h-48 object-cover rounded-xl mb-4"
+            className="w-full h-48 object-cover rounded-xl mb-4 text-text-body dark:text-slate-300"
           />
         )}
         <span className="inline-block bg-accent text-primary text-xs font-semibold px-3 py-1 rounded-full">
