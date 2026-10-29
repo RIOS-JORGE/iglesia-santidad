@@ -29,7 +29,7 @@ export default function BibleHomePage() {
   if (hasVersion) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="animate-pulse text-text-body">Cargando...</div>
+        <div className="animate-pulse text-text-body dark:text-slate-300">Cargando...</div>
       </div>
     );
   }
@@ -45,28 +45,28 @@ export default function BibleHomePage() {
 
   return (
     <div className="mx-auto max-w-md py-12 text-center">
-      <div className="mb-6 flex justify-center">
-        <BookOpenIcon size={48} color="#1E3A5F" />
+      <div className="mb-6 flex justify-center text-primary dark:text-accent">
+        <BookOpenIcon size={48} color="currentColor" />
       </div>
-      <h1 className="mb-2 text-2xl font-bold text-primary">La Biblia</h1>
-      <p className="mb-8 text-text-body">
+      <h1 className="mb-2 text-2xl font-bold text-primary dark:text-white">La Biblia</h1>
+      <p className="mb-8 text-text-body dark:text-slate-300">
         Seleccioná una versión para comenzar a leer
       </p>
 
       <button
         onClick={handleSelectVersion}
-        className="w-full cursor-pointer rounded-lg border border-slate-200 bg-white px-6 py-4 text-left transition-colors hover:border-accent hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
+        className="w-full cursor-pointer rounded-lg border border-slate-200 bg-white px-6 py-4 text-left transition-colors hover:border-accent hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-800"
       >
-        <span className="font-medium text-primary">Reina Valera 1960</span>
-        <span className="ml-2 text-xs text-text-body">(RVR1960)</span>
+        <span className="font-medium text-primary dark:text-white">Reina Valera 1960</span>
+        <span className="ml-2 text-xs text-text-body dark:text-slate-300">(RVR1960)</span>
       </button>
 
       <button
         onClick={() => openDrawer()}
-        className="mt-4 w-full cursor-pointer rounded-lg border border-slate-200 bg-white px-6 py-4 text-left text-text-body transition-colors hover:border-accent hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
+        className="mt-4 w-full cursor-pointer rounded-lg border border-slate-200 bg-white px-6 py-4 text-left text-text-body transition-colors hover:border-accent hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
       >
-        <span className="font-medium text-primary">Explorar libros</span>
-        <span className="ml-2 text-xs text-text-body">→</span>
+        <span className="font-medium text-primary dark:text-white">Explorar libros</span>
+        <span className="ml-2 text-xs text-text-body dark:text-slate-300">→</span>
       </button>
     </div>
   );

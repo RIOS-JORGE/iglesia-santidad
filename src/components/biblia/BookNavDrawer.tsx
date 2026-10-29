@@ -40,7 +40,7 @@ export default function BookNavDrawer({
 
     return (
       <div className="mb-4">
-        <h3 className="sticky top-0 z-10 bg-white py-2 text-xs font-bold tracking-widest uppercase text-accent">
+        <h3 className="sticky top-0 z-10 bg-white py-2 text-xs font-bold tracking-widest uppercase text-accent dark:bg-slate-900">
           {title}
         </h3>
         <ul>
@@ -50,11 +50,11 @@ export default function BookNavDrawer({
               <li key={book.abrev}>
                 <button
                   onClick={() => handleBookClick(book.name)}
-                  className="flex w-full items-center justify-between rounded px-2 py-1.5 text-left text-sm text-primary transition-colors hover:bg-slate-100 cursor-pointer"
+                  className="flex w-full items-center justify-between rounded px-2 py-1.5 text-left text-sm text-primary transition-colors hover:bg-slate-100 cursor-pointer dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   <span>{book.name}</span>
                   <span
-                    className={`text-xs text-text-body transition-transform ${
+                    className={`text-xs text-text-body transition-transform dark:text-slate-400 ${
                       isExpanded ? 'rotate-180' : ''
                     }`}
                   >
@@ -71,7 +71,7 @@ export default function BookNavDrawer({
                       <button
                         key={ch}
                         onClick={() => handleChapterClick(book.name, ch)}
-                        className="flex h-8 w-8 items-center justify-center rounded border border-slate-200 text-xs text-text-body transition-colors hover:border-accent hover:text-accent cursor-pointer"
+                        className="flex h-8 w-8 items-center justify-center rounded border border-slate-200 text-xs text-text-body transition-colors hover:border-accent hover:text-accent cursor-pointer dark:border-slate-600 dark:text-slate-300"
                       >
                         {ch}
                       </button>
@@ -90,22 +90,22 @@ export default function BookNavDrawer({
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/30"
+          className="fixed inset-0 z-40 bg-black/30 dark:bg-black/60"
           onClick={onClose}
           aria-hidden="true"
         />
       )}
 
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transition-transform duration-300 dark:bg-slate-900 dark:shadow-black/40 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
-          <h2 className="text-base font-semibold text-primary">Libros</h2>
+        <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700">
+          <h2 className="text-base font-semibold text-primary dark:text-white">Libros</h2>
           <button
             onClick={onClose}
-            className="rounded p-1 text-text-body transition-colors hover:text-primary cursor-pointer"
+            className="rounded p-1 text-text-body transition-colors hover:text-primary cursor-pointer dark:text-slate-300 dark:hover:text-white"
             aria-label="Cerrar"
           >
             <svg

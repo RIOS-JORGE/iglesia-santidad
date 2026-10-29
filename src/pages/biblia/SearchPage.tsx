@@ -87,7 +87,7 @@ export default function SearchPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold text-primary">
+      <h1 className="mb-6 text-2xl font-bold text-primary dark:text-white">
         Buscar en la Escritura
       </h1>
 
@@ -97,13 +97,13 @@ export default function SearchPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar en la Escritura..."
-          className="flex-1 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-primary placeholder-text-body focus:outline-none focus:ring-2 focus:ring-accent"
+          className="flex-1 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-primary placeholder-text-body focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400"
           autoFocus
         />
         <select
           value={testament}
           onChange={(e) => handleTestamentChange(e.target.value)}
-          className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent"
+          className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-800 dark:text-white"
         >
           {TESTAMENT_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -115,7 +115,7 @@ export default function SearchPage() {
 
       <div className="mt-6">
         {!hasSearched && (
-          <p className="text-center text-text-body py-8">
+          <p className="text-center text-text-body py-8 dark:text-slate-300">
             Escribí un término para comenzar la búsqueda
           </p>
         )}
@@ -128,7 +128,7 @@ export default function SearchPage() {
 
         {searchError && (
           <div className="flex flex-col items-center justify-center gap-4 py-8">
-            <p className="text-red-500">{searchError}</p>
+            <p className="text-red-500 dark:text-red-400">{searchError}</p>
             <button
               onClick={() => {
                 setDebouncedQuery((prev) => prev);
@@ -155,27 +155,27 @@ export default function SearchPage() {
         )}
 
         {!searchLoading && !searchError && hasSearched && totalResults === 0 && (
-          <p className="text-center text-text-body py-8">
+          <p className="text-center text-text-body py-8 dark:text-slate-300">
             Sin resultados para &quot;{debouncedQuery}&quot;
           </p>
         )}
 
         {!searchLoading && !searchError && hasSearched && totalResults > 0 && (
           <>
-            <p className="mb-2 text-sm text-text-body">
+            <p className="mb-2 text-sm text-text-body dark:text-slate-300">
               {totalResults} resultado{totalResults !== 1 ? 's' : ''} para &quot;{debouncedQuery}&quot;
             </p>
-            <ul className="divide-y divide-slate-200">
+            <ul className="divide-y divide-slate-200 dark:divide-slate-700">
               {pageResults.map((result, idx) => (
                 <li key={`${result.reference}-${result.verse_number}-${idx}`}>
                   <Link
                     to={`/biblia/${encodeURIComponent(result.book.name)}/${result.chapter}`}
-                    className="block px-1 py-3 transition-colors hover:bg-slate-50 no-underline"
+                    className="block px-1 py-3 transition-colors hover:bg-slate-50 no-underline dark:hover:bg-slate-800"
                   >
                     <span className="text-xs font-medium text-accent">
                       {result.reference}
                     </span>
-                    <p className="mt-1 font-serif leading-relaxed text-primary/90">
+                    <p className="mt-1 font-serif leading-relaxed text-primary/90 dark:text-slate-200">
                       {result.text}
                     </p>
                   </Link>
@@ -188,11 +188,11 @@ export default function SearchPage() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage <= 1}
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default"
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 >
                   ← Anterior
                 </button>
-                <span className="text-sm text-text-body">
+                <span className="text-sm text-text-body dark:text-slate-300">
                   Página {currentPage} de {totalPages}
                 </span>
                 <button
@@ -200,7 +200,7 @@ export default function SearchPage() {
                     setPage((p) => Math.min(totalPages, p + 1))
                   }
                   disabled={currentPage >= totalPages}
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default"
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 >
                   Siguiente →
                 </button>

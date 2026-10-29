@@ -16,7 +16,7 @@ export default function ChapterNav({
   onNext,
 }: ChapterNavProps) {
   const btnBase =
-    'rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default';
+    'rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent disabled:opacity-40 disabled:pointer-events-none cursor-pointer disabled:cursor-default dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200';
 
   return (
     <nav className="flex items-center justify-between gap-4 py-4">
@@ -24,7 +24,7 @@ export default function ChapterNav({
         ← Anterior
       </button>
 
-      <span className="text-sm text-text-body">
+      <span className="text-sm text-text-body dark:text-slate-300">
         Capítulo {chapter} de {totalChapters}
       </span>
 

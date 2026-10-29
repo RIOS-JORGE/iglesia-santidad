@@ -22,7 +22,8 @@ export default function BibleLayout() {
   const linkBase =
     'px-3 py-1.5 text-sm font-medium rounded transition-colors no-underline';
   const active = 'bg-accent text-white';
-  const inactive = 'text-text-body hover:text-primary hover:bg-slate-100';
+  const inactive =
+    'text-text-body hover:text-primary hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800';
 
   function openDrawer(bookName?: string) {
     setDrawerInitialBook(bookName);
@@ -37,17 +38,17 @@ export default function BibleLayout() {
   return (
     <div className="min-h-[calc(100vh-72px-200px)]">
       {/* Bible header */}
-      <header className="sticky top-[72px] z-30 border-b border-slate-200 bg-white">
+      <header className="sticky top-[72px] z-30 border-b border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex items-center">
             <button
               onClick={() => setIsDrawerOpen((p) => !p)}
-              className="mr-2 text-xl text-primary transition-colors hover:text-accent cursor-pointer"
+              className="mr-2 text-xl text-primary transition-colors hover:text-accent cursor-pointer dark:text-white"
               aria-label="Abrir navegación de libros"
             >
               ☰
             </button>
-            <Link to="/biblia" className="text-lg font-bold text-primary no-underline">
+            <Link to="/biblia" className="text-lg font-bold text-primary no-underline dark:text-white">
               Biblia
             </Link>
           </div>
@@ -63,7 +64,7 @@ export default function BibleLayout() {
                 >
                   Libros
                 </NavLink>
-                <span className="text-slate-300">|</span>
+                <span className="text-slate-300 dark:text-slate-600">|</span>
                 <NavLink
                   to="/biblia/search"
                   className={({ isActive: ia }) =>
@@ -72,10 +73,10 @@ export default function BibleLayout() {
                 >
                   Buscar
                 </NavLink>
-                <span className="text-slate-300">|</span>
+                <span className="text-slate-300 dark:text-slate-600">|</span>
               </>
             )}
-            <span className="rounded border border-slate-200 bg-white px-3 py-1.5 text-sm text-text-body">
+            <span className="rounded border border-slate-200 bg-white px-3 py-1.5 text-sm text-text-body dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
               Reina Valera 1960
             </span>
           </nav>

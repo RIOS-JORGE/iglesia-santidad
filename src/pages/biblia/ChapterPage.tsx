@@ -107,7 +107,7 @@ export default function ChapterPage() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
-        <p className="text-red-500">{error}</p>
+        <p className="text-red-500 dark:text-red-400">{error}</p>
         <button
           onClick={() => window.location.reload()}
           className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90 cursor-pointer"
@@ -122,7 +122,7 @@ export default function ChapterPage() {
   if (!chapterData) {
     return (
       <div className="flex items-center justify-center py-20">
-        <p className="text-text-body">No se encontró el capítulo solicitado.</p>
+        <p className="text-text-body dark:text-slate-300">No se encontró el capítulo solicitado.</p>
       </div>
     );
   }
@@ -130,10 +130,10 @@ export default function ChapterPage() {
   // Success state
   return (
     <article>
-      <h1 className="mb-1 text-xl font-bold text-primary">
+      <h1 className="mb-1 text-xl font-bold text-primary dark:text-white">
         {chapterData.book.name}
       </h1>
-      <p className="mb-4 text-sm text-text-body">
+      <p className="mb-4 text-sm text-text-body dark:text-slate-300">
         Capítulo {chapter}
       </p>
 
