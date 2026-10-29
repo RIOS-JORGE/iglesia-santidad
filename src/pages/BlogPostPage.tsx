@@ -29,7 +29,7 @@ export default function BlogPostPage() {
   if (loading) {
     return (
       <section className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-text-body text-lg">Cargando publicación…</p>
+        <p className="text-text-body text-lg dark:text-slate-300">Cargando publicación…</p>
       </section>
     );
   }
@@ -37,13 +37,13 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <section className="min-h-[60vh] flex flex-col items-center justify-center gap-6 px-4">
-        <h1 className="text-3xl font-bold text-primary">Publicación no encontrada</h1>
-        <p className="text-text-body text-lg text-center">
+        <h1 className="text-3xl font-bold text-primary dark:text-white">Publicación no encontrada</h1>
+        <p className="text-text-body text-lg text-center dark:text-slate-300">
           La publicación que buscas no existe o ha sido eliminada.
         </p>
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-accent hover:text-primary font-semibold transition-colors"
+          className="inline-flex items-center gap-2 text-accent hover:text-primary dark:hover:text-white font-semibold transition-colors"
         >
           ← Volver al blog
         </Link>
@@ -85,20 +85,20 @@ export default function BlogPostPage() {
 
           <div
             className="
-              prose prose-lg max-w-none
-              [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-4
-              [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-3
-              [&_p]:text-text-body [&_p]:leading-relaxed
+              prose prose-lg max-w-none dark:text-slate-200
+              [&_h2]:text-primary dark:[&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4
+              [&_h3]:text-primary dark:[&_h3]:text-white [&_h3]:mt-6 [&_h3]:mb-3
+              [&_p]:text-text-body dark:[&_p]:text-slate-300 [&_p]:leading-relaxed
               [&_blockquote]:border-l-4 [&_blockquote]:border-accent
-              [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-text-body
+              [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-text-body dark:[&_blockquote]:text-slate-300
               [&_blockquote]:my-6
               [&_img]:rounded-xl [&_img]:w-full [&_img]:my-6
-              [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:text-text-body [&_ul]:space-y-2
-              [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:text-text-body [&_ol]:space-y-2
+              [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:text-text-body dark:[&_ul]:text-slate-300 [&_ul]:space-y-2
+              [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:text-text-body dark:[&_ol]:text-slate-300 [&_ol]:space-y-2
               [&_li>p]:mb-0
-              [&_strong]:text-primary [&_strong]:font-bold
-              [&_a]:text-accent [&_a]:underline [&_a:hover]:text-primary
-              [&_hr]:border-text-light [&_hr]:my-8
+              [&_strong]:text-primary dark:[&_strong]:text-white [&_strong]:font-bold
+              [&_a]:text-accent [&_a]:underline [&_a:hover]:text-primary dark:[&_a:hover]:text-white
+              [&_hr]:border-text-light dark:[&_hr]:border-slate-600 [&_hr]:my-8
             "
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />

@@ -22,7 +22,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto">
           {loading ? (
             <div className="text-center py-20">
-              <p className="text-text-light text-lg">Cargando publicaciones…</p>
+              <p className="text-text-light text-lg dark:text-slate-400">Cargando publicaciones…</p>
             </div>
           ) : posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -32,7 +32,7 @@ export default function BlogPage() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-text-light text-lg">
+              <p className="text-text-light text-lg dark:text-slate-400">
                 No hay publicaciones disponibles por el momento. ¡Vuelve pronto!
               </p>
             </div>
