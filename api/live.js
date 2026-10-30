@@ -21,7 +21,7 @@ export default async function handler(request, response) {
     `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate=180`,
   );
 
-  const apiKey = process.env.YOUTUBE_API_KEY;
+  const apiKey = process.env.YOUTUBE_API_KEY?.trim();
   if (!apiKey) {
     response.status(200).json({ live: false, videoId: null, configured: false });
     return;
@@ -34,13 +34,14 @@ export default async function handler(request, response) {
       configured: true,
       checkedAt: new Date().toISOString(),
     });
-  } catch {
+  } catch (error) {
     // Never break the section because YouTube is slow or the quota ran out.
     response.status(200).json({
       live: false,
       videoId: null,
       configured: true,
       unavailable: true,
+      reason: describeError(error),
     });
   }
 }
@@ -94,6 +95,22 @@ async function fetchJson(url) {
     headers: { accept: 'application/json' },
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
-  if (!response.ok) throw new Error(`YouTube API responded ${response.status}`);
+  if (!response.ok) {
+    let detail = '';
+    try {
+      const payload = await response.json();
+      detail = payload?.error?.message ?? '';
+    } catch {
+      // Body was not JSON; the status code is enough.
+    }
+    throw new Error(
+      `YouTube API responded ${response.status}${detail ? `: ${detail}` : ''}`,
+    );
+  }
   return response.json();
+}
+
+function describeError(error) {
+  const message = error instanceof Error ? error.message : 'Unknown error';
+  return message.slice(0, 180);
 }
