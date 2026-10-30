@@ -1,77 +1,70 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-type LiveStatus = 'loading' | 'live' | 'offline';
+type LiveStatus = 'checking' | 'live' | 'offline';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-declare global {
-  interface Window {
-    onYouTubeIframeAPIReady?: () => void;
-    YT?: any;
-  }
-}
+type LiveResponse = {
+  live?: boolean;
+  videoId?: string | null;
+  title?: string | null;
+};
+
+const POLL_INTERVAL_MS = 60_000;
+const VIDEO_ID_PATTERN = /^[\w-]{11}$/;
 
 export default function Streaming() {
-  const [status, setStatus] = useState<LiveStatus>('loading');
-  const playerRef = useRef<any>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<LiveStatus>('checking');
+  const [videoId, setVideoId] = useState<string | null>(null);
+  const [title, setTitle] = useState<string | null>(null);
 
   useEffect(() => {
-    let destroyed = false;
+    let cancelled = false;
+    const controller = new AbortController();
 
-    function createPlayer() {
-      if (!window.YT || !containerRef.current) return;
+    async function checkLiveStatus() {
+      try {
+        const response = await fetch('/api/live', {
+          signal: controller.signal,
+          headers: { accept: 'application/json' },
+        });
+        if (!response.ok) {
+          throw new Error(`Unexpected status ${response.status}`);
+        }
 
-      playerRef.current = new window.YT.Player(containerRef.current, {
-        height: '100%',
-        width: '100%',
-        videoId: 'live_stream',
-        playerVars: {
-          channel: 'UCMbh0FCJ4JHtwMap7hi0FrK',
-          autoplay: 1,
-          modestbranding: 1,
-        },
-        events: {
-          onReady: () => {
-            if (destroyed) return;
-            const state = playerRef.current?.getPlayerState();
-            if (
-              state === window.YT.PlayerState.PLAYING ||
-              state === window.YT.PlayerState.BUFFERING
-            ) {
-              setStatus('live');
-            }
-          },
-          onStateChange: (e: { data: number }) => {
-            if (destroyed) return;
-            if (e.data === window.YT.PlayerState.PLAYING) {
-              setStatus('live');
-            }
-          },
-          onError: () => {
-            if (destroyed) return;
-            setStatus('offline');
-          },
-        },
-      });
+        const data = (await response.json()) as LiveResponse;
+        if (cancelled) return;
+
+        if (data.live && typeof data.videoId === 'string' && VIDEO_ID_PATTERN.test(data.videoId)) {
+          setVideoId(data.videoId);
+          setTitle(data.title ?? null);
+          setStatus('live');
+        } else {
+          setVideoId(null);
+          setTitle(null);
+          setStatus('offline');
+        }
+      } catch {
+        if (cancelled) return;
+        setVideoId(null);
+        setTitle(null);
+        setStatus('offline');
+      }
     }
 
-    function onAPIReady() {
-      if (!destroyed) createPlayer();
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'visible') {
+        void checkLiveStatus();
+      }
     }
 
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.head.appendChild(tag);
-      window.onYouTubeIframeAPIReady = onAPIReady;
-    } else {
-      createPlayer();
-    }
+    void checkLiveStatus();
+    const intervalId = window.setInterval(checkLiveStatus, POLL_INTERVAL_MS);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      destroyed = true;
-      playerRef.current?.destroy();
-      playerRef.current = null;
+      cancelled = true;
+      controller.abort();
+      window.clearInterval(intervalId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
@@ -84,16 +77,21 @@ export default function Streaming() {
         </p>
 
         <div className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl shadow-lg dark:shadow-black/20 aspect-video">
-          {status === 'live' ? (
-            <div ref={containerRef} className="h-full w-full" />
+          {status === 'live' && videoId ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title={title ?? 'Transmisión en vivo'}
+              className="h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           ) : (
-            <>
-              <img
-                src="/Paraos-por-los-caminos.jpg"
-                alt="Santidad a Jehovah"
-                className="h-full w-full object-fill"
-              />
-            </>
+            <img
+              src="/Paraos-por-los-caminos.jpg"
+              alt="Santidad a Jehovah"
+              className="h-full w-full object-fill"
+            />
           )}
         </div>
 
