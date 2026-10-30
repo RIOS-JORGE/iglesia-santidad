@@ -6,7 +6,7 @@ import SocialCard from './SocialCard.tsx';
 const socials = [
   { icon: FacebookIcon, platform: 'Facebook', handle: '@santidadajehovah', url: 'https://www.facebook.com/santidadajehovah', iconColor: '#1877F2' },
   { icon: InstagramIcon, platform: 'Instagram', handle: '@santidadajehovah', url: 'https://www.instagram.com/santidadajehovah/', iconColor: '#E4405F' },
-  { icon: YoutubeIcon, platform: 'YouTube', handle: '@santidadajehovah0', url: 'https://www.youtube.com/@santidadajehovah0', iconColor: '#FF0000' },
+  { icon: YoutubeIcon, platform: 'YouTube', handle: '@santidadajehovahAR', url: 'https://www.youtube.com/@santidadajehovahAR', iconColor: '#FF0000' },
 ];
 
 export default function SocialGrid() {

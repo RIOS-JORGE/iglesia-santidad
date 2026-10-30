@@ -85,7 +85,7 @@ export default function Navbar() {
           <a href="https://www.instagram.com/santidadajehovah" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-colors">
             <InstagramIcon size={22} />
           </a>
-          <a href="https://www.youtube.com/@santidadajehovah0" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-colors">
+          <a href="https://www.youtube.com/@santidadajehovahAR" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300 hover:text-accent dark:hover:text-accent transition-colors">
             <YoutubeIcon size={22} />
           </a>
         </div>
@@ -150,7 +150,7 @@ export default function Navbar() {
             <a href="https://www.instagram.com/santidadajehovah" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300">
               <InstagramIcon size={22} />
             </a>
-            <a href="https://www.youtube.com/@santidadajehovah0" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300">
+            <a href="https://www.youtube.com/@santidadajehovahAR" target="_blank" rel="noopener noreferrer" className="text-text-nav dark:text-slate-300">
               <YoutubeIcon size={22} />
             </a>
           </div>

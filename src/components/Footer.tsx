@@ -35,7 +35,7 @@ export default function Footer() {
             <a href="https://www.instagram.com/santidadajehovah" target="_blank" rel="noopener noreferrer">
               <InstagramIcon size={22} color="#FFFFFF" />
             </a>
-            <a href="https://www.youtube.com/@santidadajehovah0" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/@santidadajehovahAR" target="_blank" rel="noopener noreferrer">
               <YoutubeIcon size={22} color="#FFFFFF" />
             </a>
           </div>

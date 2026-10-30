@@ -9,7 +9,7 @@
  *   1. playlistItems.list -> latest uploads (live streams appear there)
  *   2. videos.list        -> liveStreamingDetails for those videos
  */
-const CHANNEL_ID = 'UCMbh0FCJ4JHtwMap7hi0FrK';
+const CHANNEL_ID = 'UC2BpCmBiJR-b4zrcTm_ef_Q';
 const UPLOADS_PLAYLIST_ID = `UU${CHANNEL_ID.slice(2)}`;
 const MAX_RESULTS = 10;
 const CACHE_SECONDS = 45;
