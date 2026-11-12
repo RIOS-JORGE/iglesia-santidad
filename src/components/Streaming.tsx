@@ -72,9 +72,6 @@ export default function Streaming() {
     <section id="streaming" className="bg-white dark:bg-slate-900 px-4 py-16">
       <div className="mx-auto max-w-7xl text-center">
         <h2 className="text-[32px] font-bold text-primary dark:text-white">Transmisión en Vivo</h2>
-        <p className="text-text-body dark:text-slate-300 mt-2 text-base">
-          Martes 20:30hs
-        </p>
 
         <div className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl shadow-lg dark:shadow-black/20 aspect-video">
           {status === 'live' && videoId ? (
